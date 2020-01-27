@@ -119,4 +119,18 @@ class TestMap {
       map->put(foo_key, bar);
       return map->get(foo_key)->equals(bar);
     }
+
+    int main() {
+      bool success = it_returns_the_value_for_a_key()
+        && it_contains_the_key()
+        && it_equals_another_empty_map()
+        && it_equals_another_map()
+        && it_computes_the_same_empty_hashcode()
+        && it_computes_the_same_hashcode()
+        && it_computes_keyset()
+        && it_removes_elements()
+        && it_computes_size()
+        && it_updates_values();
+      return success ? 0 : 1;
+    }
 };
