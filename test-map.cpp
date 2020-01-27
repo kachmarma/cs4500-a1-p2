@@ -41,7 +41,7 @@ class TestMap {
     bool it_computes_the_same_empty_hashcode() {
       Map* map1 = new Map();
       Map* map2 = new Map();
-      return map1->hash_code() == map2->hash_code();
+      return map1->hash() == map2->hash();
     }
 
     bool it_computes_the_same_hashcode() {
@@ -51,7 +51,7 @@ class TestMap {
       String* foo = new String("foo");
       map1->put(foo_key, foo);
       map2->put(foo_key, foo);
-      return map1->hash_code() == map2->hash_code();
+      return map1->hash() == map2->hash();
     }
 
     bool it_computes_keyset() {
