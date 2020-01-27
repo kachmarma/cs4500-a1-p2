@@ -1,6 +1,7 @@
 #pragma once
 
 #include "object.h"
+#include <stddef.h>
 
 class Map: public Object {
   public:
@@ -17,7 +18,7 @@ class Map: public Object {
     bool equals(Object* other);
 
     // Computes the hash value of this map
-    int hash_code();
+    size_t hash();
 
     // Returns the set of keys in this map
     Object** key_set();
