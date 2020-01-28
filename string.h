@@ -86,8 +86,4 @@ class String : public Object {
   virtual int compare(String* other) {
     return strcmp(this->val_, other->val_);
   }
-
-  virtual char* to_string() {
-    return this->val_;
-  }
 };

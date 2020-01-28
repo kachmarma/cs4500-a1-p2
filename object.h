@@ -9,7 +9,4 @@ class Object {
 
     // Computes the hash value of this object
     virtual size_t hash();
-
-    // Returns the string representation of this object
-    virtual char* to_string();
 };
