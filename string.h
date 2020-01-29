@@ -1,43 +1,49 @@
+//lang::CwC
 #pragma once
 
-#include <stdio.h>
-#include <string.h>
-#include <cstddef>
-#include <stdlib.h>
-#include <assert.h>
-
 #include "object.h"
+#include <cstdlib>
+#include <cstring>
+#include <cstdio> 
 
+/**
+ * An immutable String class representing a char*
+ * author: chasebish */
 class String : public Object {
-  public:
-    // Default constructor
-    String();
-    
-    // Construct a String with the given char*
-    String (char* val);
+public:
+  /** CONSTRUCTORS & DESTRUCTORS **/
 
-    // Construct a String with the given char*
-    String(const char* val);
+  /* Creates a String copying s */
+  String(const char* s);
 
-    // Destructor
-    ~String();
+  /* Copies a String copying the value from s */
+  String(String* const s);
 
-    // Return a new String representing this String
-    // concatenated with the given other String
-    String* concat(String* other);
+  /* Clears String from memory */
+  ~String();
 
-    // Return the character at index i
-    char char_at(size_t i);
 
-    // Return the size of this String
-    size_t size();
+  /** INHERITED METHODS **/
 
-    // Return the hash of this String
-    virtual size_t hash();
+  /* Inherited from Object, generates a hash for a String */
+  size_t hash();
 
-    // Doed this String equal the given Object?
-    virtual bool equals(Object *o);
+  /* Inherited from Object, checks equality between an String and an Object */
+  bool equals(Object* const obj);
 
-    // How does this String alphabetically compare to the given other String
-    virtual int compare(String* other);
+
+  /** STRING METHODS **/
+  
+  /** Compares strings based on alphabetical order
+   * < 0 -> this String is less than String s
+   * = 0 -> this String is equal to String s
+   * > 0 -> this String is greater than String s
+   */
+  int cmp(String* const s);
+
+  /* Creates a new String by combining two existing Strings */
+  String* concat(String* const s);
+
+  /* Returns the current length of the String */
+  size_t size();
 };
